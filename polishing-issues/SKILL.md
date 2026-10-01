@@ -1,6 +1,6 @@
 ---
 name: polishing-issues
-description: Make a GitHub issue self-contained so any coding agent can implement it without follow-up questions: scope, file touchpoints, acceptance criteria, validation. Use when an issue lacks scope or acceptance criteria, or before handing it to an agent. One issue at a time, not roadmaps.
+description: "Make a GitHub issue self-contained so any coding agent can implement it without follow-up questions: scope, file touchpoints, acceptance criteria, validation. Use when an issue lacks scope or acceptance criteria, or before handing it to an agent. One issue at a time, not roadmaps."
 ---
 
 # Polish Issue Scope
