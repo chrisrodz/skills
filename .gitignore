@@ -1,0 +1,4 @@
+.DS_Store
+
+# Per-machine skill config overrides (real values; repo stays generic)
+**/config.local.md
