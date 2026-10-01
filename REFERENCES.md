@@ -74,6 +74,12 @@ My own skills are in [README.md](README.md).
 | resend | `resend/resend-skills@resend` |
 | remotion-best-practices | `remotion-dev/skills@remotion-best-practices` |
 
+## Visual explanation
+
+| Skill | Install | Notes |
+|---|---|---|
+| show-me | `humanlayer/skills@show-me` | HumanLayer. Concise diagrams, code-shape sketches and focused HTML artifacts. Frontmatter sets `disable-model-invocation: true`, so invoke it yourself (`/show-me`) |
+
 ## Research and async coding workflows
 
 | Skill | Install | Notes |
