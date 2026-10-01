@@ -1,53 +1,25 @@
 ---
 name: polishing-issues
-description: Make a GitHub issue self-contained for a single feature/fix so any coding agent can execute it without back-and-forth. Focus on scope, file touchpoints, acceptance criteria, and validation.
+description: Make a GitHub issue self-contained so any coding agent can implement it without follow-up questions: scope, file touchpoints, acceptance criteria, validation. Use when an issue lacks scope or acceptance criteria, or before handing it to an agent. One issue at a time, not roadmaps.
 ---
 
-# Polish Issue Scope (Single Feature)
+# Polish Issue Scope
 
-Goal: turn one issue into a complete, actionable spec for a single feature or fix. Keep it concise, technical, and executable without follow-up questions.
-
-## Use When
-
-- Issue is missing scope, acceptance criteria, or validation.
-- Issue references a feature/fix but lacks file touchpoints or constraints.
-- You need an execution-ready issue for a coding agent.
-
-## Do Not Use
-
-- Multi-epic planning or multi-sprint roadmaps.
-- Full product/spec interviews (use the interview skill for that).
+Turn one issue into an execution-ready spec for a single feature or fix. Concise, technical, no fluff.
 
 ## Workflow
 
-1) Fetch the issue
+1. Fetch the issue:
 
 ```bash
 gh issue view <number> --repo <owner/repo> --json title,body,labels,state,comments
 ```
 
-1) Scan the codebase
-
-- Locate related files or patterns with `rg`.
-- Identify likely files to modify or create.
-- Note constraints (existing APIs, data models, UI patterns, tests).
-
-1) Resolve blockers
-
-- Ask all blocking questions for the issue.
-- If not blocking, confirm assumptions with user before proceeding.
-
-1) Draft a concise scope block
-
-- Keep to bullets, no fluff.
-- Provide enough context to implement without follow-up.
-
-1) Show preview and confirm
-
-- Present exact markdown to append.
-- Wait for explicit approval before editing the issue.
-
-1) Update the issue
+2. Scan the codebase with `rg` for related files and patterns. Note constraints: existing APIs, data models, UI patterns, tests.
+3. Ask every blocking question. Confirm non-blocking assumptions with the user.
+4. Draft the scope block (template below).
+5. Show the exact markdown to append and wait for explicit approval before editing the issue.
+6. Update the issue:
 
 ```bash
 CURRENT_BODY=$(gh issue view <number> --repo <owner/repo> --json body -q .body)
@@ -65,19 +37,16 @@ gh issue edit <number> --repo <owner/repo> --body "$CURRENT_BODY
 ## Scope
 
 **Summary**
-- <1-2 sentence summary of the change>
+- <1-2 sentences: the change and who it affects>
 
 **Assumptions**
-- <explicit assumptions or defaults made>
+- <explicit defaults>
 
 **Goals**
 - <what must be true when done>
 
 **Non-goals**
 - <explicitly out of scope>
-
-**User impact**
-- <who is affected and how>
 
 **Touchpoints**
 - Modify: `path/to/file.ts` - <why>
@@ -91,35 +60,20 @@ gh issue edit <number> --repo <owner/repo> --body "$CURRENT_BODY
 
 **Acceptance criteria**
 - [ ] <testable outcome>
-- [ ] <testable outcome>
 
 **Validation**
 - Tests: `<command or file>`
 - Manual: <steps>
 
-**Task breakdown** (atomic, commit-ready)
-1. <task title>
-   - Inputs: <files/data/flags>
-   - Outputs: <artifacts/changes>
-   - Steps: <1-3 concrete steps>
-   - Validation: <test or check>
-   - Complexity: <1-10>
-2. <task title>
-   - Inputs: <files/data/flags>
-   - Outputs: <artifacts/changes>
-   - Steps: <1-3 concrete steps>
-   - Validation: <test or check>
-   - Complexity: <1-10>
+**Tasks** (only when the work spans several commits)
+1. <task> - <validation>
 
 **Dependencies / risks**
-- <libs, feature flags, env vars, rollout concerns>
+- <libs, flags, env vars, rollout>
 ```
 
 ## Rules
 
 - Prefer explicit file paths and code locations.
-- Each task must be small and independently verifiable.
-- Each task must include inputs/outputs and 1-3 concrete steps.
-- Complexity is a 1-10 estimate; split tasks above 7.
-- If there are multiple viable approaches, list them briefly and pick a recommendation unless the choice blocks implementation.
-- Avoid long narrative; keep it scannable.
+- With several viable approaches, list them briefly and recommend one unless the choice blocks implementation.
+- Keep it scannable.

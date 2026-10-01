@@ -1,6 +1,6 @@
 ---
 name: daily-note
-description: Transition an Obsidian daily note from one day to the next — close out the outgoing day (fill Done, meeting recaps, EOD compound) and open the incoming day (carry-over, meeting prep, prioritized plan) by gathering Slack, GitHub, task-tracker, calendar, and meeting-notes activity. Use when the user runs a start-of-day or end-of-day routine, asks to plan the day, wrap up the day, roll their notes forward, or invokes /daily-note, /sod, or /eod.
+description: Roll an Obsidian daily note forward: close out the outgoing day (Done, meeting recaps, end-of-day compound) and open the incoming day (carry-over, meeting prep, prioritized plan) from Slack, GitHub, task tracker, calendar, and meeting notes. Use for start-of-day or end-of-day routines, when asked to plan or wrap up the day, or on /daily-note.
 ---
 
 # daily-note
